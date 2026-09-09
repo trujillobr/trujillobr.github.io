@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>热血漫画-热血漫画精选推荐与阅读指南</title>
+    <meta name="description" content="热血漫画精选推荐，涵盖经典热血少年漫画与最新热门作品。了解热血漫画的魅力、类型特点、入坑指南及常见问题，找到最适合你的热血之作。">
+    <meta name="keywords" content="热血漫画,热血漫画推荐,热血少年漫画,经典热血漫画,热血漫画排行,热血漫画大全,热血漫画入门">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: #fdf8f5;
+            color: #2b2b2b;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #d63031 0%, #b71c1c 100%);
+            color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-icon {
+            font-size: 42px;
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+        }
+        .logo-text h1 {
+            font-size: 28px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 0 rgba(0,0,0,0.2);
+        }
+        .logo-text p {
+            font-size: 14px;
+            opacity: 0.95;
+            letter-spacing: 1px;
+        }
+        nav {
+            background-color: #8e1a1a;
+            padding: 12px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px 0;
+        }
+        nav ul li {
+            margin: 0 5px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 8px 18px;
+            border-radius: 30px;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: scale(1.05);
+        }
+        .hero {
+            background: linear-gradient(145deg, #f6d365 0%, #fda085 100%);
+            padding: 60px 0;
+            text-align: center;
+            border-bottom: 5px solid #d63031;
+        }
+        .hero h2 {
+            font-size: 42px;
+            font-weight: 900;
+            color: #7c1d1d;
+            text-shadow: 2px 2px 0 rgba(255,255,255,0.6);
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px;
+            max-width: 750px;
+            margin: 0 auto 25px;
+            color: #4a2c2c;
+            font-weight: 500;
+        }
+        .btn-hero {
+            display: inline-block;
+            background: #d63031;
+            color: #fff;
+            padding: 14px 40px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-hero:hover {
+            background: #b71c1c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(214, 48, 49, 0.5);
+        }
+        .section {
+            padding: 50px 0;
+        }
+        .section-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: #b71c1c;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, #d63031, #fda085);
+            border-radius: 2px;
+            margin-top: 8px;
+        }
+        .section-sub {
+            font-size: 16px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+        .intro-card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            border-left: 6px solid #d63031;
+            margin-bottom: 30px;
+        }
+        .intro-card p {
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .feature-item {
+            background: #fff;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid #d63031;
+        }
+        .feature-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .feature-item .icon {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+        .feature-item h3 {
+            font-size: 20px;
+            color: #b71c1c;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 15px;
+            color: #555;
+        }
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .manga-card {
+            background: #fff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0e0dd;
+        }
+        .manga-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .manga-cover {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            background: linear-gradient(135deg, #fff5f0, #ffe0d0);
+        }
+        .manga-info {
+            padding: 18px;
+        }
+        .manga-info h3 {
+            font-size: 18px;
+            margin-bottom: 6px;
+            color: #333;
+        }
+        .manga-info .tag {
+            display: inline-block;
+            background: #fdecea;
+            color: #d63031;
+            font-size: 12px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .manga-info p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        .steps-list {
+            counter-reset: step;
+            list-style: none;
+            margin-top: 20px;
+        }
+        .steps-list li {
+            counter-increment: step;
+            background: #fff;
+            padding: 20px 25px 20px 80px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.04);
+            border-left: 4px solid #d63031;
+        }
+        .steps-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #d63031;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        .steps-list li h3 {
+            font-size: 18px;
+            color: #b71c1c;
+            margin-bottom: 5px;
+        }
+        .steps-list li p {
+            font-size: 15px;
+            color: #555;
+        }
+        .tips-box {
+            background: linear-gradient(135deg, #fff8f0, #fff0e0);
+            border-radius: 16px;
+            padding: 25px;
+            border: 2px dashed #e09d7a;
+            margin-top: 30px;
+        }
+        .tips-box h3 {
+            color: #b75a2a;
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+        .tips-box ul {
+            padding-left: 20px;
+        }
+        .tips-box li {
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+        .faq-list {
+            margin-top: 20px;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            padding: 20px 25px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.04);
+            border-left: 5px solid #fda085;
+        }
+        .faq-item h3 {
+            font-size: 18px;
+            color: #b71c1c;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        .faq-item p {
+            font-size: 15px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .related-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        .related-tags a {
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #555;
+            text-decoration: none;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        .related-tags a:hover {
+            background: #d63031;
+            color: #fff;
+            border-color: #d63031;
+        }
+        .cta-box {
+            background: linear-gradient(135deg, #d63031, #b71c1c);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+        }
+        .cta-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .cta-box p {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.95;
+        }
+        .btn-white {
+            display: inline-block;
+            background: #fff;
+            color: #d63031;
+            padding: 12px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .btn-white:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background: #2b2b2b;
+            color: #aaa;
+            padding: 30px 0;
+            margin-top: 20px;
+        }
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .footer-inner p {
+            font-size: 14px;
+        }
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .logo-text h1 {
+                font-size: 22px;
+            }
+            .hero h2 {
+                font-size: 30px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .section-title {
+                font-size: 26px;
+            }
+            .header-inner {
+                justify-content: center;
+                text-align: center;
+            }
+            nav ul li a {
+                font-size: 14px;
+                padding: 6px 12px;
+            }
+            .manga-cover {
+                height: 140px;
+                font-size: 56px;
+            }
+            .steps-list li {
+                padding: 15px 15px 15px 65px;
+            }
+            .steps-list li::before {
+                width: 34px;
+                height: 34px;
+                font-size: 15px;
+                left: 15px;
+            }
+            .cta-box {
+                padding: 30px 20px;
+            }
+            .cta-box h3 {
+                font-size: 22px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+            .logo-text h1 {
+                font-size: 20px;
+            }
+            .hero {
+                padding: 40px 0;
+            }
+            .hero h2 {
+                font-size: 26px;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .manga-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo-area">
+                <span class="logo-icon">🔥</span>
+                <div class="logo-text">
+                    <h1>热血漫画</h1>
+                    <p>点燃青春 · 燃烧斗志</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">经典作品</a></li>
+            <li><a href="#">新作推荐</a></li>
+            <li><a href="#">阅读指南</a></li>
+            <li><a href="#">常见问题</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>🔥 热血漫画的世界</h2>
+                <p>热血漫画是日本漫画中最具感染力的类型之一，它以少年主角的成长为核心，融合友情、努力与胜利的精神内核，让无数读者在翻页之间感受到澎湃的激情与勇气。无论你是初次接触还是资深漫迷，这里都有属于你的热血篇章。</p>
+                <a href="#featured" class="btn-hero">开始探索</a>
+            </div>
+        </section>
+
+        <section class="section" id="featured">
+            <div class="container">
+                <h2 class="section-title">什么是热血漫画</h2>
+                <p class="section-sub">理解这一经久不衰的漫画类型</p>
+                <div class="intro-card">
+                    <p>热血漫画，通常指以积极向上、充满奋斗精神的故事为核心，主要面向青少年读者（尤其是少年）的漫画作品。这类作品往往围绕主人公的成长历程展开，主角通过不断的努力、战斗、挑战自我，最终实现目标或守护重要的人。</p>
+                    <p>“热血”二字，既指代作品中那些令人心跳加速的战斗场面，也指代角色内心永不熄灭的火焰。从《龙珠》的孙悟空到《航海王》的路飞，从《火影忍者》的鸣人到《鬼灭之刃》的炭治郎，这些经典角色共同构筑了热血漫画的精神谱系——伙伴、梦想、永不言弃。</p>
+                </div>
+
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="icon">💪</div>
+                        <h3>成长与蜕变</h3>
+                        <p>主角从弱小到强大的过程是热血漫画的核心叙事。每一次战斗、每一次挫折都成为成长的养分，让读者在共鸣中获得力量。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🤝</div>
+                        <h3>友情与羁绊</h3>
+                        <p>伙伴之间的信任与支持是推动剧情的重要引擎。热血漫画中的友情往往跨越生死，成为最动人的情感纽带。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">⚡</div>
+                        <h3>战斗与挑战</h3>
+                        <p>精彩的战斗设计是热血漫画的视觉盛宴。从拳拳到肉的搏击到华丽的能力对决，每一场战斗都承载着信念与意志的碰撞。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🏆</div>
+                        <h3>梦想与胜利</h3>
+                        <p>“努力、友情、胜利”是少年漫画的黄金法则。热血漫画中的角色始终朝着明确的目标前进，这种纯粹的热忱极具感染力。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">经典热血漫画精选</h2>
+                <p class="section-sub">这些作品经受了时间的考验，是热血漫画的标杆之作</p>
+                <div class="manga-grid">
+                    <article class="manga-card">
+                        <div class="manga-cover">🐉</div>
+                        <div class="manga-info">
+                            <span class="tag">经典必读</span>
+                            <h3>龙珠</h3>
+                            <p>鸟山明大师之作，现代热血漫画的奠基石。从冒险到格斗，悟空的故事定义了整个少年漫画的范式。</p>
+                        </div>
+                    </article>
+                    <article class="manga-card">
+                        <div class="manga-cover">🏴‍☠️</div>
+                        <div class="manga-info">
+                            <span class="tag">国民级</span>
+                            <h3>航海王</h3>
+                            <p>尾田荣一郎笔下的伟大航路，路飞与伙伴们追寻“ONE PIECE”的冒险，承载了无数人的青春与梦想。</p>
+                        </div>
+                    </article>
+                    <article class="manga-card">
+                        <div class="manga-cover">🍥</div>
+                        <div class="manga-info">
+                            <span class="tag">忍者题材</span>
+                            <h3>火影忍者</h3>
+                            <p>漩涡鸣人从吊车尾到火影的逆袭之路，关于孤独、认可与羁绊的动人故事，影响了全球一代读者。</p>
+                        </div>
+                    </article>
+                    <article class="manga-card">
+                        <div class="manga-cover">⚔️</div>
+                        <div class="manga-info">
+                            <span class="tag">现象级</span>
+                            <h3>鬼灭之刃</h3>
+                            <p>大正时代的人鬼之战，炭治郎为拯救妹妹而战斗的纯粹意志，引发了全球范围的热潮。</p>
+                        </div>
+                    </article>
+                    <article class="manga-card">
+                        <div class="manga-cover">🦸</div>
+                        <div class="manga-info">
+                            <span class="tag">英雄题材</span>
+                            <h3>我的英雄学院</h3>
+                            <p>在超能力社会的背景下，绿谷出久从无个性到继承最强力量的成长故事，诠释了真正的英雄精神。</p>
+                        </div>
+                    </article>
+                    <article class="manga-card">
+                        <div class="manga-cover">⚡</div>
+                        <div class="manga-info">
+                            <span class="tag">热血竞技</span>
+                            <h3>排球少年</h3>
+                            <p>没有超能力，只有汗水和团队。日向翔阳与影山飞雄的搭档组合，展现了体育热血最纯粹的模样。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">热血漫画类型细分</h2>
+                <p class="section-sub">热血漫画并不只有一种模样</p>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <div class="icon">👊</div>
+                        <h3>格斗战斗类</h3>
+                        <p>以武斗、能力对战为核心，如《龙珠》《刃牙》。强调力量碰撞、招式克制与极限突破，追求最直接的视觉刺激。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🏀</div>
+                        <h3>体育竞技类</h3>
+                        <p>将热血精神与体育运动结合，如《灌篮高手》《排球少年》。通过比赛中的成长与团队协作打动人心。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🧠</div>
+                        <h3>智斗冒险类</h3>
+                        <p>依靠策略与胆识取胜，如《JOJO的奇妙冒险》《约定的梦幻岛》。热血不仅来自力量，更来自智慧博弈。</p>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon">🌌</div>
+                        <h3>奇幻冒险类</h3>
+                        <p>在异世界或幻想大陆展开旅程，如《妖精的尾巴》《黑色四叶草》。世界观宏大，冒险与战斗交织。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">热血漫画入坑指南</h2>
+                <p class="section-sub">从零开始，找到适合你的第一部热血漫画</p>
+                <ol class="steps-list">
+                    <li>
+                        <h3>明确你的兴趣偏好</h3>
+                        <p>喜欢拳拳到肉的格斗？还是更偏爱团队作战？倾向于现代背景还是奇幻世界？先想清楚自己最感兴趣的元素，能大幅缩小选择范围。</p>
+                    </li>
+                    <li>
+                        <h3>从经典入门</h3>
+                        <p>经典作品之所以成为经典，是因为它们在叙事、角色和情感上都经得起推敲。从《龙珠》《航海王》或《火影忍者》入手，几乎不会踩雷。</p>
+                    </li>
+                    <li>
+                        <h3>尝试不同长度</h3>
+                        <p>如果你时间有限，可以从篇幅较短的作品开始，如《鬼灭之刃》（全23卷）或《钢之炼金术师》（全27卷）。长篇作品虽然过瘾，但需要更多时间投入。</p>
+                    </li>
+                    <li>
+                        <h3>关注动画与漫画联动</h3>
+                        <p>许多热血漫画都有高质量的动画改编。可以先看动画感受节奏与氛围，再深入阅读漫画原作，体验更完整的细节与伏笔。</p>
+                    </li>
+                </ol>
+
+                <div class="tips-box">
+                    <h3>💡 阅读小贴士</h3>
+                    <ul>
+                        <li>热血漫画的黄金时期往往在主角第一次遭遇重大挫折之后，请一定耐心看到那里。</li>
+                        <li>不必执着于“战力排名”，理解角色背后的信念比数字更有意义。</li>
+                        <li>很多作品存在“重制版”或“完全版”，在收藏时值得留意版本差异。</li>
+                        <li>热血漫画不只是男生的专利，越来越多的作品拥有广阔的女性读者群体。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">热血漫画的魅力所在</h2>
+                <p class="section-sub">为什么这些故事让人如此着迷</p>
+                <div class="intro-card">
+                    <p>热血漫画之所以能跨越文化与年龄的界限，打动一代又一代人，是因为它触及了人类内心最朴素的渴望：突破自我的局限，为了珍视之物而拼尽全力。在现实生活里，我们未必有机会挥舞刀剑或释放能量，但那份“想要变强”的心情是相通的。</p>
+                    <p>热血漫画中的角色并非完美无缺。他们也会恐惧、迷茫、失败，但可贵的是他们从未真正放弃。这种“明知前路艰险，依然选择前行”的姿态，正是“热血”二字最动人的注脚。每当读者在低谷时翻开一册热血漫画，仿佛也能从中汲取到继续前进的勇气。</p>
+                </div>
+                <div class="cta-box">
+                    <h3>准备好开启你的热血之旅了吗？</h3>
+                    <p>无论你是寻找第一部入坑作，还是想重温经典，热血漫画的世界永远为你敞开。翻开第一页，故事就此开始。</p>
+                    <a href="#" class="btn-white">立即探索更多作品</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #fff;">
+            <div class="container">
+                <h2 class="section-title">常见问题</h2>
+                <p class="section-sub">关于热血漫画，你可能想了解这些</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>热血漫画只适合青少年阅读吗？</h3>
+                        <p>并非如此。虽然热血漫画的核心受众是青少年，但其主题涉及友情、责任、牺牲与成长，这些内容对各个年龄段的读者都有吸引力。许多成年人也会在经典热血漫画中找到共鸣与慰藉。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>热血漫画和少年漫画有什么区别？</h3>
+                        <p>少年漫画是按连载杂志的读者定位划分的类型，而热血漫画则是按内容风格划分的。热血漫画大多连载于少年漫画杂志，但并非所有少年漫画都是热血类型。热血漫画更强调战斗、奋斗与激昂的情绪体验。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>哪部热血漫画最适合新手入门？</h3>
+                        <p>这取决于个人偏好。如果喜欢经典王道，可以从《航海王》或《火影忍者》开始；如果偏爱紧凑剧情，《钢之炼金术师》是公认的完美之作；如果喜欢近年作品，《鬼灭之刃》和《咒术回战》都是不错的选择。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>热血漫画中的“友情”为何如此重要？</h3>
+                        <p>友情在热血漫画中不仅是情感元素，更是推动角色成长和剧情发展的核心动力。伙伴的存在让主角的战斗有了更明确的意义，也让读者更容易产生情感代入。许多经典场景都建立在深厚的羁绊之上。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>热血漫画会一直流行下去吗？</h3>
+                        <p>只要人们对成长、奋斗与希望的故事抱有渴望，热血漫画的生命力就不会枯竭。虽然表现形式会随时代变化，但其传达的“永不放弃”的精神内核是永恒的。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">相关主题延伸</h2>
+                <p class="section-sub">继续探索更多精彩漫画世界</p>
+                <div class="related-tags">
+                    <a href="#">少年漫画</a>
+                    <a href="#">冒险漫画</a>
+                    <a href="#">奇幻漫画</a>
+                    <a href="#">运动漫画</a>
+                    <a href="#">战斗漫画</a>
+                    <a href="#">友情题材</a>
+                    <a href="#">经典漫画</a>
+                    <a href="#">新番推荐</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <p>© 2024 热血漫画指南 · 点燃心中火焰</p>
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">联系方式</a>
+                <a href="#">版权声明</a>
+            </div>
+        </div>
+    </footer>
+</body>
+                          </html>
